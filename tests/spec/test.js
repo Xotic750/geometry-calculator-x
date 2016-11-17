@@ -41,6 +41,7 @@
         triangle = new cag.RightAngledTriangle(3, 4, 5);
         expect(triangle).not.toBe(null);
         expect(typeof triangle).toBe('object');
+        expect(triangle instanceof cag.Shape).toBe(true);
       });
       it('circumference', function () {
         expect(triangle.circumference()).toBe(12);
@@ -54,6 +55,7 @@
         rectangle = new cag.Rectangle(3, 4);
         expect(rectangle).not.toBe(null);
         expect(typeof rectangle).toBe('object');
+        expect(rectangle instanceof cag.Shape).toBe(true);
       });
       it('circumference', function () {
         expect(rectangle.circumference()).toBe(14);
@@ -67,6 +69,7 @@
         circle = new cag.Circle(3);
         expect(circle).not.toBe(null);
         expect(typeof circle).toBe('object');
+        expect(circle instanceof cag.Shape).toBe(true);
       });
       it('circumference', function () {
         expect(circle.circumference().toFixed(2)).toBe('18.85');

@@ -57,10 +57,45 @@
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
   es3:true, plusplus:true, maxparams:4, maxdepth:2,
-  maxstatements:10, maxcomplexity:2 */
+  maxstatements:18, maxcomplexity:2 */
 /*global module */
 (function () {
   'use strict';
+
+  /**
+   * The base object for other shapes to inherit from.
+   *
+   * @class Shape
+   * @this {Shape}
+   * @public
+   */
+  function Shape() {}
+
+  /**
+   * Zero for the default shape.
+   *
+   * @public
+   * @function circumference
+   * @memberof module:geometry-calculator-x~Shape#
+   * @this {Shape}
+   * @return {number} The circumference unit distance measurement.
+   */
+  Shape.prototype.circumference = function circumference() {
+    return 0;
+  };
+
+  /**
+   * Zero for the default shape.
+   *
+   * @public
+   * @function area
+   * @memberof module:geometry-calculator-x~Shape#
+   * @this {Shape}
+   * @return {number} The area unit square measurement.
+   */
+  Shape.prototype.area = function area() {
+    return 0;
+  };
 
   /**
    * A right triangle (American English) or
@@ -81,10 +116,14 @@
    * @param {number} h The hypotenuse unit distance measurement.
    */
   function RightAngledTriangle(x, y, h) {
+    Shape.apply(this, Array.from(arguments));
     this.x = x;
     this.y = y;
     this.h = h;
   }
+
+  // Inherit
+  RightAngledTriangle.prototype = Object.create(Shape.prototype);
 
   /**
    * The circumference of a right angled triangle is the sum of the three
@@ -97,7 +136,7 @@
    * @this {RightAngledTriangle}
    * @return {number} The circumference unit distance measurement.
    */
-  RightAngledTriangle.prototype.circumference = function () {
+  RightAngledTriangle.prototype.circumference = function circumference() {
     return this.x + this.y + this.h;
   };
 
@@ -114,7 +153,7 @@
    * @this {RightAngledTriangle}
    * @return {number} The area unit square measurement.
    */
-  RightAngledTriangle.prototype.area = function () {
+  RightAngledTriangle.prototype.area = function area() {
     return 0.5 * this.x * this.y;
   };
 
@@ -138,9 +177,13 @@
    * @param {number} y The height unit distance measurement.
    */
   function Rectangle(x, y) {
+    Shape.apply(this, Array.from(arguments));
     this.x = x;
     this.y = y;
   }
+
+  // Inherit
+  Rectangle.prototype = Object.create(Shape.prototype);
 
   /**
    * The circumference of a rectangle is the sum of the two side
@@ -153,7 +196,7 @@
    * @this {Rectangle}
    * @return {number} The circumference unit distance measurement.
    */
-  Rectangle.prototype.circumference = function () {
+  Rectangle.prototype.circumference = function circumference() {
     return (this.x + this.y) * 2;
   };
 
@@ -167,7 +210,7 @@
    * @this {Rectangle}
    * @return {number} The area unit square measurement.
    */
-  Rectangle.prototype.area = function () {
+  Rectangle.prototype.area = function area() {
     return this.x * this.y;
   };
 
@@ -189,8 +232,12 @@
    * @param {number} r The radius unit distance measurement.
    */
   function Circle(r) {
+    Shape.apply(this, Array.from(arguments));
     this.r = r;
   }
+
+  // Inherit
+  Circle.prototype = Object.create(Shape.prototype);
 
   /**
    * The circumference of a circle relates to one of the most important
@@ -203,7 +250,7 @@
    * @this {Circle}
    * @return {number} The circumference unit distance measurement.
    */
-  Circle.prototype.circumference = function () {
+  Circle.prototype.circumference = function circumference() {
     return 2 * Math.PI * this.r;
   };
 
@@ -217,7 +264,7 @@
    * @this {Circle}
    * @return {number} The area unit square measurement.
    */
-  Circle.prototype.area = function () {
+  Circle.prototype.area = function area() {
     return Math.PI * Math.pow(this.r, 2);
   };
 
@@ -247,16 +294,18 @@
    * @this {ShapesArea}
    * @return {number} The area unit square measurement.
    */
-  ShapesArea.prototype.area = function () {
+  ShapesArea.prototype.area = function area() {
     return this.shapes.reduce(function (total, shape) {
       return total + shape.area();
     }, 0);
   };
 
   module.exports = {
+    Shape: Shape,
     RightAngledTriangle: RightAngledTriangle,
     Rectangle: Rectangle,
     Circle: Circle,
     ShapesArea: ShapesArea
   };
 }());
+

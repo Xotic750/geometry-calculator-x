@@ -53,6 +53,10 @@ behave as closely as possible to ECMAScript 7.
 **Copyright**: Xotic750  
 
 * [geometry-calculator-x](#module_geometry-calculator-x)
+    * [~Shape](#module_geometry-calculator-x..Shape)
+        * [`new Shape()`](#new_module_geometry-calculator-x..Shape_new)
+        * [`.circumference()`](#module_geometry-calculator-x..Shape+circumference) ⇒ <code>number</code>
+        * [`.area()`](#module_geometry-calculator-x..Shape+area) ⇒ <code>number</code>
     * [~RightAngledTriangle](#module_geometry-calculator-x..RightAngledTriangle)
         * [`new RightAngledTriangle(x, y, h)`](#new_module_geometry-calculator-x..RightAngledTriangle_new)
         * [`.circumference()`](#module_geometry-calculator-x..RightAngledTriangle+circumference) ⇒ <code>number</code>
@@ -69,6 +73,41 @@ behave as closely as possible to ECMAScript 7.
         * [`new ShapesArea(...varArgs)`](#new_module_geometry-calculator-x..ShapesArea_new)
         * [`.area()`](#module_geometry-calculator-x..ShapesArea+area) ⇒ <code>number</code>
 
+<a name="module_geometry-calculator-x..Shape"></a>
+
+### geometry-calculator-x~Shape
+**Kind**: inner class of <code>[geometry-calculator-x](#module_geometry-calculator-x)</code>  
+**this**: <code>{Shape}</code>  
+**Access:** public  
+
+* [~Shape](#module_geometry-calculator-x..Shape)
+    * [`new Shape()`](#new_module_geometry-calculator-x..Shape_new)
+    * [`.circumference()`](#module_geometry-calculator-x..Shape+circumference) ⇒ <code>number</code>
+    * [`.area()`](#module_geometry-calculator-x..Shape+area) ⇒ <code>number</code>
+
+<a name="new_module_geometry-calculator-x..Shape_new"></a>
+
+#### `new Shape()`
+The base object for other shapes to inherit from.
+
+<a name="module_geometry-calculator-x..Shape+circumference"></a>
+
+#### `shape.circumference()` ⇒ <code>number</code>
+Zero for the default shape.
+
+**Kind**: instance method of <code>[Shape](#module_geometry-calculator-x..Shape)</code>  
+**Returns**: <code>number</code> - The circumference unit distance measurement.  
+**this**: <code>{Shape}</code>  
+**Access:** public  
+<a name="module_geometry-calculator-x..Shape+area"></a>
+
+#### `shape.area()` ⇒ <code>number</code>
+Zero for the default shape.
+
+**Kind**: instance method of <code>[Shape](#module_geometry-calculator-x..Shape)</code>  
+**Returns**: <code>number</code> - The area unit square measurement.  
+**this**: <code>{Shape}</code>  
+**Access:** public  
 <a name="module_geometry-calculator-x..RightAngledTriangle"></a>
 
 ### geometry-calculator-x~RightAngledTriangle
