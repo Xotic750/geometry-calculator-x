@@ -47,7 +47,7 @@ behave as closely as possible to ECMAScript 6 (Harmony).
 behave as closely as possible to ECMAScript 7.
 
 **See**: https://gist.github.com/KristofferV/952493dfa53b1349e684c4fa2f203403  
-**Version**: 1.0.0  
+**Version**: 1.0.1  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
